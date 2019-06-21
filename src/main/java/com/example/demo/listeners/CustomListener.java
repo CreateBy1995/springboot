@@ -59,7 +59,7 @@ public class CustomListener implements GenericApplicationListener , ApplicationC
         // 设置一些必须解析的environment中的参数
         ConfigurableEnvironment environment = event.getEnvironment() ;
         // 在context刷新之前会去验证环境(environment)中是否有这两个参数  如果没有 就会抛出异常
-        environment.setRequiredProperties("time1","time2");
+//        environment.setRequiredProperties("time1","time2");
         LogUtil.error("自定义Listener 监听 ApplicationEnvironmentPreparedEvent 事件",this.getClass());
     }
 

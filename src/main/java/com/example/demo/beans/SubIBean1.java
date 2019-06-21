@@ -1,5 +1,6 @@
 package com.example.demo.beans;
 
+import com.example.demo.util.LogType;
 import com.example.demo.util.LogUtil;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Primary;
@@ -12,6 +13,6 @@ import org.springframework.stereotype.Component;
 @DependsOn({"subIBean1Depend","subIBean1Depend2"})
 public class SubIBean1 implements IBean {
     public SubIBean1() {
-        LogUtil.error("init SubIBean1",this.getClass());
+        LogUtil.print("init SubIBean1",this.getClass(), LogType.ERROR);
     }
 }

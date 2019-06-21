@@ -1,5 +1,6 @@
 package com.example.demo.beans;
 
+import com.example.demo.util.LogType;
 import com.example.demo.util.LogUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class SubIBean1Depend implements InitializingBean{
     private String name ;
     public SubIBean1Depend() {
-        LogUtil.error("init SubIBean1Depend",this.getClass());
+        LogUtil.print("init SubIBean1Depend",this.getClass(), LogType.ERROR);
     }
 
     /**
@@ -16,8 +17,8 @@ public class SubIBean1Depend implements InitializingBean{
      * @throws Exception
      */
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         this.name = "Hello" ;
-        LogUtil.error("为SubIBean1Depend的name属性赋值",this.getClass());
+        LogUtil.print("为SubIBean1Depend的name属性赋值",this.getClass(),LogType.ERROR);
     }
 }

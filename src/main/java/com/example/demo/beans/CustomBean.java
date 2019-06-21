@@ -1,8 +1,10 @@
 package com.example.demo.beans;
 
+import com.example.demo.util.LogType;
 import com.example.demo.util.LogUtil;
+import org.springframework.beans.factory.InitializingBean;
 
-public class CustomBean {
+public class CustomBean implements InitializingBean  {
     private String name ;
     private int age ;
     public String getName() {
@@ -15,10 +17,11 @@ public class CustomBean {
         return age;
     }
     public void setAge(int age) {
+        LogUtil.print("为age赋值",this.getClass(), LogType.ERROR);
         this.age = age;
     }
     public CustomBean(){
-        LogUtil.error("init CustomBean" , this.getClass());
+        LogUtil.print("init CustomBean",this.getClass(), LogType.ERROR);
     }
 
     @Override
@@ -27,5 +30,10 @@ public class CustomBean {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        LogUtil.print("自定义初始化方法---当前对象为--"+this.toString(),this.getClass(), LogType.ERROR);
     }
 }

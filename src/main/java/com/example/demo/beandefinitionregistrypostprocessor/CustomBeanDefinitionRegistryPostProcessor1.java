@@ -1,7 +1,6 @@
 package com.example.demo.beandefinitionregistrypostprocessor;
 
 import com.example.demo.util.LogUtil;
-import com.example.demo.util.SpringUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

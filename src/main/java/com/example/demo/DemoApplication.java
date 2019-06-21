@@ -4,9 +4,9 @@ import com.example.demo.beans.CustomBean;
 import com.example.demo.beans.IBean;
 import com.example.demo.beans.MethodBean;
 import com.example.demo.beans.MethodBean1;
+import com.example.demo.conditionals.CustomConditional;
 import com.example.demo.context.CustomContext;
 import com.example.demo.event.CustomCommonEvent;
-import com.example.demo.event.CustomEvent;
 import com.example.demo.imports.ImportByDefault;
 import com.example.demo.imports.ImportByDefinitionRegistrar;
 import com.example.demo.imports.ImportBySelector;
@@ -20,17 +20,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.EnableLoadTimeWeaving;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+
+import java.io.IOException;
 
 @Import(value = {ImportByDefault.class,ImportByDefinitionRegistrar.class,ImportBySelector.class})
-//@Conditional(CustomConditional.class)
+@Conditional(CustomConditional.class)
 @SpringBootApplication
-//@PropertySource("classpath:config/customFile.properties")
-public class DemoApplication implements DemoSuper{
+@PropertySource("classpath:config/customFile.properties")
+public class DemoApplication implements DemoSuper {
 	@Autowired
 	private IBean iBean ;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		SpringApplication springApplication = new SpringApplication(DemoApplication.class) ;
 		// 实现自定义context
 		springApplication.setApplicationContextClass(CustomContext.class);
@@ -51,7 +54,6 @@ public class DemoApplication implements DemoSuper{
 		CustomCommonEvent customCommonEvent = new CustomCommonEvent(new Object()) ;
 		SpringUtil.publishEvent(customCommonEvent);
 	}
-
 
 	/**
 	 * 用于测试ConfigurationClassParser的processConfigurationClass()方法在解析类的时候 递归解析内部类
