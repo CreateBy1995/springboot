@@ -23,8 +23,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
-
-import java.io.IOException;
+import org.springframework.stereotype.Component;
 
 @Import(value = {ImportByDefault.class,ImportByDefinitionRegistrar.class,ImportBySelector.class})
 @Conditional(CustomConditional.class)
@@ -33,7 +32,7 @@ import java.io.IOException;
 public class DemoApplication implements DemoSuper {
 	@Autowired
 	private IBean iBean ;
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		SpringApplication springApplication = new SpringApplication(DemoApplication.class) ;
 		// 实现自定义context
 		springApplication.setApplicationContextClass(CustomContext.class);
@@ -58,7 +57,7 @@ public class DemoApplication implements DemoSuper {
 	/**
 	 * 用于测试ConfigurationClassParser的processConfigurationClass()方法在解析类的时候 递归解析内部类
 	 */
-//	@Component
+	@Component
 	private class CustomInnerClass{
 		public CustomInnerClass(){
 			LogUtil.error("init SubIBean1Depend",this.getClass()) ;
