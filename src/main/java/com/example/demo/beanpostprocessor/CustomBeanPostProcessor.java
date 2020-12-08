@@ -19,7 +19,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor ,PriorityOrder
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        LogUtil.print("自定义BeanPostProcessor--------------Before-------当前Bean为"+beanName,this.getClass(), LogType.ERROR);
+//        LogUtil.print("自定义BeanPostProcessor--------------Before-------当前Bean为"+beanName,this.getClass(), LogType.ERROR);
         return bean;
     }
 

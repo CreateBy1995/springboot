@@ -12,9 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.GenericApplicationListener;
 import org.springframework.core.ResolvableType;
-import org.springframework.core.env.AbstractEnvironment;
 import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.Environment;
 
 /**
  * 自定义监听器
@@ -60,7 +58,7 @@ public class CustomListener implements GenericApplicationListener , ApplicationC
         ConfigurableEnvironment environment = event.getEnvironment() ;
         // 在context刷新之前会去验证环境(environment)中是否有这两个参数  如果没有 就会抛出异常
 //        environment.setRequiredProperties("time1","time2");
-        LogUtil.error("自定义Listener 监听 ApplicationEnvironmentPreparedEvent 事件",this.getClass());
+//        LogUtil.error("自定义Listener 监听 ApplicationEnvironmentPreparedEvent 事件",this.getClass());
     }
 
     /**
@@ -68,7 +66,7 @@ public class CustomListener implements GenericApplicationListener , ApplicationC
      * @param event
      */
     public void onApplicationPreparedEvent(ApplicationPreparedEvent event){
-        LogUtil.error("自定义Listener 监听 ApplicationPreparedEvent 事件",this.getClass()) ;
+//        LogUtil.error("自定义Listener 监听 ApplicationPreparedEvent 事件",this.getClass()) ;
     }
     /**
      * 这个事件是在refresh阶段 为广播器注册监听器的方法中被调用的
@@ -76,7 +74,7 @@ public class CustomListener implements GenericApplicationListener , ApplicationC
      * @param event
      */
     public void onCustomEvent(CustomEvent event){
-        LogUtil.error("自定义Listener 监听 CustomEvent applicaion early event 事件",this.getClass()) ;
+//        LogUtil.error("自定义Listener 监听 CustomEvent applicaion early event 事件",this.getClass()) ;
     }
 
     /**
@@ -84,7 +82,7 @@ public class CustomListener implements GenericApplicationListener , ApplicationC
      * @param event
      */
     public void onCommonCustomEvent(CustomCommonEvent event){
-        LogUtil.error("自定义Listener 监听 onCommonCustomEvent 事件",this.getClass()) ;
+//        LogUtil.error("自定义Listener 监听 onCommonCustomEvent 事件",this.getClass()) ;
     }
     /**
      * 在容器刷新前   SpringBoot会发布contextLoaded事件

@@ -1,6 +1,5 @@
 package com.example.demo.beanpostprocessor;
 
-import com.example.demo.DemoApplication;
 import com.example.demo.beans.CustomBean;
 import com.example.demo.util.LogType;
 import com.example.demo.util.LogUtil;
@@ -8,7 +7,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component

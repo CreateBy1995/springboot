@@ -10,15 +10,15 @@ public class LogUtil {
      */
     public static void info(String msg,Class source){
         Logger logger = LoggerFactory.getLogger(source) ;
-        logger.info(msg);
+//        logger.info(msg);
     }
     public static void warn(String msg,Class source){
         Logger logger = LoggerFactory.getLogger(source) ;
-        logger.warn(msg);
+//        logger.warn(msg);
     }
     public static void error(String msg,Class source){
         Logger logger = LoggerFactory.getLogger(source) ;
-        logger.error(msg);
+//        logger.error(msg);
     }
     /**
      * @param msg  打印的信息
@@ -27,16 +27,16 @@ public class LogUtil {
      */
     public static void print(String msg,Class source,LogType logType){
         Logger logger = LoggerFactory.getLogger(source) ;
-        switch (logType){
-            case INFO:
-                logger.info(msg);
-                break;
-            case WARN:
-                logger.warn(msg);
-                break;
-            case ERROR:
-                logger.error(msg);
-                break;
-        }
+//        switch (logType){
+//            case INFO:
+//                logger.info(msg);
+//                break;
+//            case WARN:
+//                logger.warn(msg);
+//                break;
+//            case ERROR:
+//                logger.error(msg);
+//                break;
+//        }
     }
 }

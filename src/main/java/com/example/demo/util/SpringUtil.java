@@ -21,6 +21,10 @@ public class SpringUtil   {
         return applicationContext.getBean(name,requiredType) ;
     }
 
+    public static <T> T getBean(Class<T> requiredType){
+        return applicationContext.getBean(requiredType) ;
+    }
+
     /**
      * 发布自定义事件
      * @param applicationEvent  自定义事件类型

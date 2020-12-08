@@ -32,6 +32,7 @@ public class CustomBean implements InitializingBean  {
                 '}';
     }
 
+
     @Override
     public void afterPropertiesSet() {
         LogUtil.print("自定义初始化方法---当前对象为--"+this.toString(),this.getClass(), LogType.ERROR);
